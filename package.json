@@ -1,0 +1,25 @@
+{
+  "name": "react-webuploader",
+  "version": "1.0.0",
+  "description": "a react component for upload files based on webuploader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoquanquan/react-webuploader.git"
+  },
+  "keywords": [
+    "react",
+    "webuploader",
+    "react-webuploader",
+    "upload"
+  ],
+  "author": "luo_quanquan@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luoquanquan/react-webuploader/issues"
+  },
+  "homepage": "https://github.com/luoquanquan/react-webuploader#readme"
+}
