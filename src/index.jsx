@@ -1,11 +1,11 @@
 import React from 'react';
-import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 
 window.jQuery = $;
 
 const noop = () => {};
+const guidPrefix = 'react-webuploader-'
 
 const webuploader = require('webuploader');
 
@@ -17,7 +17,7 @@ export default class WebUploader extends React.Component {
 
     };
 
-    this.key = props.key || uuid();
+    this.key = props.key || webuploader.guid(guidPrefix);
   }
 
   componentDidMount() {
@@ -159,7 +159,7 @@ export default class WebUploader extends React.Component {
         this.md5File(file, 0, 1 * 1024 * 1024).then((ret) => {
           file.md5 = ret;
           this.options.formData.md5 = ret;
-          file.tempKey = uuid();
+          file.tempKey = webuploader.guid(guidPrefix);
           // 刚刚入队的文件进度设置为 0
           file.percentage = 0;
           // 需要保证文件获取 md5 完成后再回掉, 保证 ui 和逻辑的联动
@@ -254,7 +254,7 @@ WebUploader.propTypes = {
 };
 
 WebUploader.defaultProps = {
-  key: uuid(),
+  key: webuploader.guid(guidPrefix),
   chunked: false,
   formData: {
     md5: '',

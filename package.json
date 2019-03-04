@@ -63,7 +63,6 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
-    "uuid": "^3.3.2",
     "webuploader": "^0.1.8"
   }
 }
