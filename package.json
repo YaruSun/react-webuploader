@@ -1,10 +1,22 @@
 {
   "name": "react-webuploader",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "a react component for upload files based on webuploader",
-  "main": "index.js",
+  "main": "./dist/index.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "dev": "npm start",
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "npm run transpile && npm run uglifyjs",
+    "uglifyjs": "uglifyjs dist/index.js -o dist/index.min.js -c -m --comments /^!/",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d example/dist",
+    "publish-demo": "npm run build && npm run deploy"
+  },
+  "peerDependency": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "repository": {
     "type": "git",
@@ -21,5 +33,37 @@
   "bugs": {
     "url": "https://github.com/luoquanquan/react-webuploader/issues"
   },
-  "homepage": "https://github.com/luoquanquan/react-webuploader#readme"
+  "homepage": "https://github.com/luoquanquan/react-webuploader#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.3.1",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "lodash": "^4.17.11",
+    "react": "^16.8.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-dom": "^16.8.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "uuid": "^3.3.2",
+    "webuploader": "^0.1.8"
+  }
 }
